@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+        <!-- Add the button to trigger the report -->
+        <record id="view_employee_form" model="ir.ui.view">
+            <field name="name">payroll.employee.form</field>
+            <field name="model">payroll.employee</field>
+            <field name="arch" type="xml">
+                <form string="Employee Form">
+
+                    <sheet>
+                        <group>
+                            <field name="employee_name"/>
+                            <field name='job_position'/>
+                            <field name='currency_id'/>
+                        </group>
+                        <notebook>
+                            <page string ='Total Salary'>
+                                
+                                <group>
+                                    <group>
+                                        <field name="basic_salary"/>
+                                        <field name="attendance_bonus"/>
+                                        <field name="overtime_hours"/>
+                                        <field name="overtime_days"/>
+                                        <field name="overtime_fee"/>
+                                        <field name="overtime_meal_allowance"/>
+                                    </group>
+                                    <group>
+                                        <field name="scholarship"/>
+                                        <field name="house_rent"/>
+                                        <field name="phone_billing"/>
+                                        <field name="yearly_increment"/>
+                                        <field name="total_salary"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string= 'Total Advance Withdrawal'>
+                             
+                                <group>
+                                    
+                                    <field name="advance_1"/>
+                                    <field name="advance_2"/>
+                                    <field name="advance_3"/>
+                                    <field name="advance_4"/>
+                                    <field name="advance_5"/>
+                                    <field name="total_advance"/>
+                                    
+                                </group>
+                                
+                            </page>
+                            <page string= 'Total Absence'>
+                                <group>
+                                    
+                                    <field name='late_than_0815'/>
+                                    <field name='late_than_0830'/>
+                                    <field name='medical_leave'/>
+                                    <field name='unauthorized_leave'/>
+                                    <field name='unauthorized_permission'/>
+                                    <field name='total_absence'/>
+                                    
+                                </group>
+                            </page>
+                        </notebook>
+                        <group>
+                            <field name='total_payment'/>                                    
+                        </group>          
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+    <data>
+        <!-- Define the tree view for the employee model -->
+        <record id="view_employee_tree" model="ir.ui.view">
+            <field name="name">payroll.employee.tree</field>
+            <field name="model">payroll.employee</field>
+            <field name="arch" type="xml">
+                <tree string="Employee Tree">
+                    <field name="employee_name"/>
+                    <field name='job_position'/>
+                    <field name='total_basic_salary'/>
+                    <field name='basic_salary_80'/>
+                    <field name='additional_salary_20'/>
+                    <field name="basic_salary"/>
+                    <field name="total_salary"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

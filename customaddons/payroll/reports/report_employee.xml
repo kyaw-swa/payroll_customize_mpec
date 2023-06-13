@@ -1,0 +1,108 @@
+<odoo>
+    <data>
+        <template id='payroll_report_template'>
+            <t t-call='web.html_container'>
+                <t t-call='web.basic_layout'>
+                    <link rel="stylesheet" href="/web/content/payroll/static/css/payroll_report_styles.css" type="text/css"/>
+                    <div class="page">
+                        <div class="header">
+                            <h6>PAYROLL REPORT</h6>
+                            <t t-foreach='docs' t-as='doc'>
+                                <h6><span t-field="doc.employee_name"/></h6>
+                                <h6><span t-field="doc.job_position"/></h6>
+                            </t>
+                        </div>
+                        <table class='table o_main_table'>
+                            <tbody>
+                                <tr>
+                                    <th style='width:20%; border: 1px solid black;'>Basic Salary</th>
+                                    <td colspan='2' style='border: 1px solid black;'>: <span t-field='doc.basic_salary'/></td>
+                                    <th style='width:20%; border: 1px solid black;'>Advance 1</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.advance_1'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Attendance Bonus</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.attendance_bonus'/></td>
+                                    <th style='border: 1px solid black;'>Advance 2</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.advance_2'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Overtime Hours</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.overtime_hours'/></td>
+                                    <th style='border: 1px solid black;'>Advance 3</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.advance_3'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Overtime Days</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.overtime_days'/></td>
+                                    <th style='border: 1px solid black;'>Advance 4</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.advance_4'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Overtime Fee</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.overtime_fee'/></td>
+                                    <th style='border: 1px solid black;'>Advance 5</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.advance_5'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Overtime Meal Allowance</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.overtime_meal_allowance'/></td>
+                                    <th style='border: 2px solid black;'>Total Advance</th>
+                                    <td style='border: 2px solid black;'>: <span t-field='doc.total_advance'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Scholarship</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.scholarship'/></td>
+                                    <th style='border: 1px solid black;'>Late Than 08:15</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.late_than_0815'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>House Rent</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.house_rent'/></td>
+                                    <th style='border: 1px solid black;'>Late than 08:30</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.late_than_0830'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 1px solid black;'>Phone Billing</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.phone_billing'/></td>
+                                    <th style='border: 1px solid black;'>Medical Leave</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.medical_leave'/></td>
+                                </tr>
+                            </tbody>
+                        
+                            <tbody>       
+                                
+                                <tr>
+                                    <th style='border: 1px solid black;'>Yearly Increment</th>
+                                    <td colspan='2' style='border: 1px solid black;'> :<span t-field='doc.yearly_increment'/></td>
+                                    <th style='border: 1px solid black;'>Unauthorized Leave</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.unauthorized_leave'/></td>
+                                </tr>
+                                <tr>
+                                    <th style='border: 2px solid black;'>Total Salary</th>
+                                    <td colspan='2' style='border: 2px solid black;'> :<span t-field='doc.total_salary'/></td>
+                                    <th style='border: 1px solid black;'>Unauthorized Permission</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.unauthorized_permission'/></td>
+                                </tr>
+                            </tbody>   
+                            <tbody>
+                                <tr>
+                                    <th style='border: 2px solid black;'>Total Payment</th>
+                                    <td colspan='2' style='border: 2px solid black;'>: <span t-field='doc.total_payment'/></td>
+                                    <th style='border: 1px solid black;'>Total Absence</th>
+                                    <td style='border: 1px solid black;'>: <span t-field='doc.total_absence'/></td>
+                                </tr>
+                            </tbody>
+                        </table>   
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report id='report_employee'
+                model='payroll.employee'
+                string='Payroll Report'
+                report_type='qweb-pdf'
+                name='payroll.payroll_report_template'
+                file='payroll.payroll_report_template'/>
+    </data>
+</odoo>

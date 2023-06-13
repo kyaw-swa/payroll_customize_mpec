@@ -1,0 +1,36 @@
+/* Styles for the payroll report */
+.page {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  h6 {
+    color: #333;
+    font-size: 18px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  
+  th, td {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  th {
+    background-color: #f5f5f5;
+    text-align: left;
+  }
+  
+  .total-payment th {
+    background-color: #e0e0e0;
+  }
+  
+  .total-payment td {
+    font-weight: bold;
+  }
+  

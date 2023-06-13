@@ -1,0 +1,28 @@
+<odoo>
+    <!--Training App Menu-->
+    <menuitem id="menu_payroll" name="Payroll"/>
+
+
+
+    <!-- Define the action for the menu item -->
+    <record id="action_employee_form" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">payroll.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_payslip" model="ir.actions.act_window">
+        <field name="name">Payslips</field>
+        <field name="res_model">payroll.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+    </record>
+
+    <!-- Menu Item to open the course list-->
+    <menuitem id="menu_payroll_employee" name="payroll" parent="menu_payroll" action ='action_employee_form'/>
+
+
+
+        
+  
+</odoo>

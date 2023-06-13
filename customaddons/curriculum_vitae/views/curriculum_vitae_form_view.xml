@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record id='form_curriculum_vitae' model='ir.ui.view'>
+            <field name='name'>form.curriculum.vitae</field>
+            <field name='model'>curriculum.vitae</field>
+            <field name='arch' type='xml'>
+                <form string='Curriculum Vitae'>
+                    <sheet>
+                        <div class='oe_button_box' name='button_box'>
+                            <button name='toggle_active' type='object' class='oe_state_button' icon='fa_archive'>
+                                <field name='active' widget='boolean_button' options="{'terminology':'archive'}"/>
+                            </button> 
+                        </div>
+                        <field name='image' widget='image' class='oe_avatar'/>
+                        <div class='oe_title'>
+                            <label for='name' class='oe_edit_only'/>
+                            <hl>
+                                <field name='name' place_holder='Enter your name'/>
+                            </hl>
+                            <field name='job_type'/>
+                        </div>
+                        <group string='Personal Particulars' >
+                            <group>
+                                <field name='mobile'/>
+                                <field name='email'/>
+                                <field name='age'/>
+                                <field name='nrc'/>
+                                <field name='date_of_birth'/>
+                            </group>
+                            <group>
+                                <field name='nationality'/>
+                                <field name='religion'/>
+                                <field name='gender' widget='radio'
+                                        options="{'horizontal':true}"/>
+                                <field name='marital_status' widget='radio'
+                                        options="{'horizontal':true}"/>
+                                <field name='current_address'/>
+                            </group>
+                        </group>
+                        <group string='Career Objectives'>
+                            <field name='objectives' nolabel='1'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
